@@ -1,0 +1,1 @@
+Output contains machine-dependent timings. Both dispatch methods should calculate matching totals; exception and return-code tests should report matching valid counts.

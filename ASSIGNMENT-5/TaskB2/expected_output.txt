@@ -1,0 +1,6 @@
+approved 40000
+audit: exceeds cover
+claim rejected: exceeds cover
+error: negative amount
+text input: stod
+allocation failed safely

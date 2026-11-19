@@ -1,0 +1,3 @@
+# Task B2 – Engineer Error Conditions
+Compile with the standard command, then run. The program tests valid input, a negative amount, a claim above cover, and malformed numeric text (`std::stod`). It also catches `std::bad_alloc` for an intentionally excessive allocation request; actual allocation-failure behaviour depends on the platform/overcommit policy.
+The supplied `expected_output.txt` is deterministic for the included program. The separate prediction exercise from the assignment is reproduced in `predict.cpp`; its expected output is `ok done caught negative caught too large` (spaces included).
