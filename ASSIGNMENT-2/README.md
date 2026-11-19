@@ -60,18 +60,3 @@ A non-member friend compares two operands symmetrically and can read private `h,
 
 **B. Objective:** Reduce insertion cost from O(k) to O(1) independent of the retained-history capacity, while preserving the exact chronological last-k values after 100,000 additions.
 
-**C. Revised design:** `RingHistory` stores `vector<int> data`, `capacity`, `start`, `count`. When not full, write at `(start+count)%capacity`; when full, overwrite `data[start]` and advance `start=(start+1)%capacity`. `snapshot()` reads from start in chronological order. Insertion O(1), snapshot O(k), storage O(k). Modulo arithmetic and more complex indexing are the trade-offs.
-
-**D. Prediction before execution:** Ring insertion will become relatively faster as k increases (especially k=10,000), whereas shifting takes O(k) once full. Both retain identical last-k data.
-
-**E. Validation:** Run both implementations with 100,000 insertions for k=10, 50, 1000, 10000; verify size, first, last, and measured microseconds. The same test inputs and measurement method are used for both. See `Task07/observed.txt` for results from the validation environment; repeat on your own machine and take screenshots.
-
-**F. Defense:** The ring meets the asymptotic O(1) insertion objective; shifting can still be preferable for tiny capacities because it is simpler and can have good locality. A ring adds indexing complexity and preserves a fixed capacity; dynamic resizing requires further logic. Timings may vary by machine.
-
-## GitHub submission checklist
-1. Rename repository to `DSA01-<RegisterNumber>-Assignment2` and enter personal information above.
-2. Make your **own** predictions before executing each prediction task, and document any discrepancy.
-3. Run all programs in each folder; add actual output screenshots and compiler warning screenshots.
-4. Record `g++ --version`, compilation commands, your own timing runs at `-O0` and `-O2`, and evidence of Q7 validation.
-5. Make at least one **real progressive commit per task**; do not fabricate or rewrite history to suggest work was done earlier.
-6. Push to GitHub and share the repository with faculty; paste the link on the report cover.
